@@ -4,10 +4,10 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
 
-fs.readFile('~/bitstarter/index.html','utf8',function(err,data) {
-    if(err) {
-	return console.log(err);
-	}
+    fs.readFileSync('/bitstarter/index.html','utf8' {
+	//   if(err) {
+	//	return console.log(err);
+	//	}
   response.send('Hello World12345');
 });
 
