@@ -4,11 +4,15 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
 
-    fs.readFileSync('/bitstarter/index.html','utf8' {
-	//   if(err) {
-	//	return console.log(err);
-	//	}
-  response.send('Hello World12345');
+    fs.readFile('index.html','utf8',function(err, data) {
+	 if(err) {
+	     response.write('unable to load the requested file');
+		}
+	else {
+	    response.writeHead(200, {'Content-Type': 'text/html'});
+response.write(data);
+}
+response.end();
 });
 
 var port = process.env.PORT || 5000;
