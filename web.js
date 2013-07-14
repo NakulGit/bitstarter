@@ -1,4 +1,4 @@
-var express = require('express'),http = require('http'),path = require('path');
+var express = require('express');
 var fs = require('fs');
 var app = express.createServer(express.logger());
 
@@ -6,7 +6,7 @@ app.get('/', function(request, response) {
 
     fs.readFile('index.html','utf8',function(err, data) {
 	 if(err) {
-	     response.write('unable to load the requested file');
+	     response.send('unable to load the requested file');
 		}
 	else {
 	    response.writeHead(200, {'Content-Type': 'text/html'});
